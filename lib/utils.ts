@@ -1,5 +1,5 @@
 
-export const isMock = () => process.env.USE_MOCKS !== 'false' && process.env.USE_MOCKS !== '0' && process.env.NEXT_PUBLIC_API_BASE !== 'force-live-no' && (process.env.USE_MOCKS ?? 'true') === 'true';
+export const isMock = () => process.env.NEXT_PUBLIC_USE_MOCKS !== 'false' && process.env.NEXT_PUBLIC_USE_MOCKS !== '0' && process.env.NEXT_PUBLIC_API_BASE !== 'force-live-no' && (process.env.NEXT_PUBLIC_USE_MOCKS ?? 'true') === 'true';
 export function timeAgo(iso: string): string {
   const delta = Date.now() - new Date(iso).getTime();
   const sec = Math.floor(delta/1000);

@@ -2,7 +2,8 @@
 import { mockTokenStream } from './mock-stream';
 
 const AGENT = process.env.NEXT_PUBLIC_AGENT_BASE || 'http://localhost:8090/agent/v1';
-const useMocks = process.env.USE_MOCKS !== 'false' && (process.env.USE_MOCKS ?? 'true') === 'true';
+const useMocks = (process.env.NEXT_PUBLIC_USE_MOCKS ?? 'true') === 'true';
+const PROXY = '/api/agent/chat';
 
 export async function streamAnswer(prompt: string, onToken: (t: string) => void, onCitations?: (c: {title:string; url:string}[])=>void) {
   if (useMocks) {
@@ -12,10 +13,10 @@ export async function streamAnswer(prompt: string, onToken: (t: string) => void,
     }
     return;
   }
-  const res = await fetch(`${AGENT}/chat/stream`, {
+  const res = await fetch(PROXY, {
     method: 'POST',
-    headers: { 'content-type': 'application/json' },
-    body: JSON.stringify({ messages: [{ role: 'user', content: prompt }] })
+    headers: { 'content-type': 'application/json', 'accept': 'text/event-stream' },
+    body: JSON.stringify({ message: prompt, role: 'user' })
   });
   if (!res.body) throw new Error('No body');
   const reader = res.body.getReader();

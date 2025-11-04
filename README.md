@@ -19,11 +19,11 @@ Copy `.env.example` to `.env.local` and adjust:
 ```
 NEXT_PUBLIC_API_BASE=http://localhost:8080/api/v1
 NEXT_PUBLIC_AGENT_BASE=http://localhost:8090/agent/v1
-USE_MOCKS=true
+NEXT_PUBLIC_USE_MOCKS=true
 ```
 
-- `USE_MOCKS=true`: read local fixtures and mock SSE.
-- `USE_MOCKS=false`: call live APIs: `GET /feed`, `GET /items/{slug}`, `GET /posts`, `GET /posts/{slug}`, `GET /search`; chat streams from `${NEXT_PUBLIC_AGENT_BASE}/chat/stream` (SSE).
+- `NEXT_PUBLIC_USE_MOCKS=true`: read local fixtures and mock SSE.
+- `NEXT_PUBLIC_USE_MOCKS=false`: call live APIs: `GET /feed`, `GET /items/{slug}`, `GET /posts`, `GET /posts/{slug}`, `GET /search`; chat streams from `${NEXT_PUBLIC_AGENT_BASE}/chat/stream` (SSE).
 
 ## Scripts
 
@@ -60,7 +60,7 @@ web/
 ## Acceptance Criteria mapping
 
 - Home renders from mocks ✅
-- Toggle `USE_MOCKS=false` switches to live endpoints ✅ (fetch wrappers in `lib/data/api.ts`)
+- Toggle `NEXT_PUBLIC_USE_MOCKS=false` switches to live endpoints ✅ (fetch wrappers in `lib/data/api.ts`)
 - Item shows summary bullets & "why it matters" ✅
 - Search highlights query ✅
 - Chat streams mock tokens with citations ✅
