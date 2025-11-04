@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1",
+    "user": "What happened in AI this week?",
+    "assistant": [
+      {
+        "token": "Here is a quick roundup: "
+      },
+      {
+        "token": "OpenAI released a new model. "
+      },
+      {
+        "token": "Anthropic updated their safety guidelines. "
+      },
+      {
+        "token": "Google added features to Vertex AI. "
+      },
+      {
+        "token": "\\n",
+        "citations": [
+          {
+            "title": "Example News",
+            "url": "https://example.com/news/sample"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "user": "Latest security news",
+    "assistant": [
+      {
+        "token": "Security highlights: CVEs patched across cloud providers. "
+      },
+      {
+        "token": "Advisories recommend rotating keys. "
+      },
+      {
+        "token": "\\n",
+        "citations": [
+          {
+            "title": "Security Blog",
+            "url": "https://example.com/security"
+          }
+        ]
+      }
+    ]
+  }
+]

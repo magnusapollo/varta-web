@@ -1,0 +1,21 @@
+[
+  {
+    "slug": "hello-varta",
+    "title": "Hello Varta: why another AI news site",
+    "tags": [
+      "meta",
+      "product"
+    ],
+    "published_at": "2025-11-04",
+    "readingTime": "3 min"
+  },
+  {
+    "slug": "mock-first-architecture",
+    "title": "Mock-first architecture that ships",
+    "tags": [
+      "engineering"
+    ],
+    "published_at": "2025-11-04",
+    "readingTime": "4 min"
+  }
+]

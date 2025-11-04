@@ -1,0 +1,1 @@
+export default function LoadingSkeleton(){ return <div className='animate-pulse h-24 rounded-2xl bg-gray-200 dark:bg-gray-800 mb-3'/> }

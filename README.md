@@ -1,0 +1,72 @@
+
+# varta-web
+
+Next.js + React frontend for **Varta** (AI news site). Mock-first, switchable to live Core API and Agent API via env flags.
+
+## Quick start
+
+```bash
+pnpm install
+pnpm dev
+```
+
+This runs the app at http://localhost:3000 using **mock data** by default.
+
+## Env toggle
+
+Copy `.env.example` to `.env.local` and adjust:
+
+```
+NEXT_PUBLIC_API_BASE=http://localhost:8080/api/v1
+NEXT_PUBLIC_AGENT_BASE=http://localhost:8090/agent/v1
+USE_MOCKS=true
+```
+
+- `USE_MOCKS=true`: read local fixtures and mock SSE.
+- `USE_MOCKS=false`: call live APIs: `GET /feed`, `GET /items/{slug}`, `GET /posts`, `GET /posts/{slug}`, `GET /search`; chat streams from `${NEXT_PUBLIC_AGENT_BASE}/chat/stream` (SSE).
+
+## Scripts
+
+- `pnpm dev` - start Next.js (port 3000)
+- `pnpm build && pnpm start` - production build & run
+- `pnpm test` - vitest + @testing-library/react smoke tests
+- `pnpm lint` - eslint
+- `pnpm typecheck` - tsc
+- `pnpm fixtures:regen` - copy seed fixtures again
+
+## Tech
+
+- Next.js 14 (App Router, RSC)
+- TypeScript
+- Tailwind CSS + `@tailwindcss/typography`
+- shadcn/ui (locally vendored minimal components in `components/ui/*` for now)
+- MDX for posts
+- SSR/ISR: `revalidate = 300` on feed/topic/item routes
+- Mock SSE client switchable to real agent SSE
+
+## Project layout
+
+```
+2025-11-04 snapshot
+web/
+├─ app/...
+├─ components/...
+├─ lib/...
+├─ fixtures/...
+├─ styles/globals.css
+└─ tests/...
+```
+
+## Acceptance Criteria mapping
+
+- Home renders from mocks ✅
+- Toggle `USE_MOCKS=false` switches to live endpoints ✅ (fetch wrappers in `lib/data/api.ts`)
+- Item shows summary bullets & "why it matters" ✅
+- Search highlights query ✅
+- Chat streams mock tokens with citations ✅
+- SSR/ISR set ✅
+- Tests included ✅
+
+---
+
+MIT © 2025 Varta

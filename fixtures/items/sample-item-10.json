@@ -1,0 +1,85 @@
+{
+  "id": "10",
+  "slug": "sample-item-10",
+  "title": "Sample headline 10: AI news event",
+  "source": "Example News",
+  "source_url": "https://example.com/news/sample",
+  "excerpt": "Deep dive into the story.",
+  "tags": [
+    "startups",
+    "policy",
+    "cloud"
+  ],
+  "published_at": "2025-11-04T07:44:06.440957",
+  "rank": 10,
+  "why": "Key market impact",
+  "topics": [
+    "policy",
+    "cloud"
+  ],
+  "summary_md": "\n- **What happened:** A notable development in the AI ecosystem.\n- **Why it matters:** Potential to reshape industry dynamics across vendors.\n- **What to watch:** Follow-on announcements, customer adoption, and benchmarks.\n",
+  "entities": [
+    "OpenAI",
+    "Anthropic",
+    "Google"
+  ],
+  "related": [
+    {
+      "id": "48",
+      "slug": "sample-item-48",
+      "title": "Sample headline 48: AI news event",
+      "source": "Example News",
+      "source_url": "https://example.com/news/sample",
+      "excerpt": "This is a short excerpt summarizing the news item and its implications for the industry.",
+      "tags": [
+        "research",
+        "startups"
+      ],
+      "published_at": "2025-11-02T17:44:06.440957",
+      "rank": null,
+      "why": "Key market impact",
+      "topics": [
+        "cloud",
+        "security"
+      ]
+    },
+    {
+      "id": "50",
+      "slug": "sample-item-50",
+      "title": "Sample headline 50: AI news event",
+      "source": "Example News",
+      "source_url": "https://example.com/news/sample",
+      "excerpt": "This is a short excerpt summarizing the news item and its implications for the industry.",
+      "tags": [
+        "startups",
+        "ai"
+      ],
+      "published_at": "2025-11-02T15:44:06.440957",
+      "rank": null,
+      "why": "",
+      "topics": [
+        "cloud",
+        "security"
+      ]
+    },
+    {
+      "id": "9",
+      "slug": "sample-item-9",
+      "title": "Sample headline 9: AI news event",
+      "source": "Example News",
+      "source_url": "https://example.com/news/sample",
+      "excerpt": "This is a short excerpt summarizing the news item and its implications for the industry.",
+      "tags": [
+        "policy",
+        "security"
+      ],
+      "published_at": "2025-11-04T08:44:06.440957",
+      "rank": 9,
+      "why": "Key market impact",
+      "topics": [
+        "policy",
+        "cloud"
+      ]
+    }
+  ]
+}
