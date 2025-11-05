@@ -50,9 +50,11 @@ export function createApiClient() {
     // Expect /feed to return SearchResultDto (wrapper)
     async feed(params?: { topics?: string[]; timeframe?: string; page?: number }) {
       const q = new URLSearchParams();
+      console.log("here "+JSON.stringify(params))
       if (params?.topics?.length) q.set('topics', params.topics.join(','));
-      if (params?.timeframe) q.set('timeframe', params.timeframe);
+      if (params?.timeframe) q.set('since', `P${params.timeframe}`);
       if (params?.page) q.set('page', String(params.page));
+
 
       // If your backend path differs, adjust here.
       const payload = (await get<SearchResultDto>(`/feed?${q.toString()}`)) ?? {
