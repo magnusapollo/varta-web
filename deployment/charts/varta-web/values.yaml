@@ -1,0 +1,31 @@
+image:
+  repository: 704892510569.dkr.ecr.us-east-1.amazonaws.com/varta-web
+  tag: v0.1.0-4639b42
+  pullPolicy: IfNotPresent
+
+replicaCount: 2
+
+service:
+  type: ClusterIP
+  port: 3000
+
+env: {}   # e.g. NEXT_PUBLIC_API_BASE: "https://api.example.com"
+
+httpRoute:
+  enabled: false
+
+ingress:
+  enabled: true
+  className: alb
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/healthcheck-path: /api/health
+    alb.ingress.kubernetes.io/success-codes: "200"
+  hosts:
+    - host: ""     # leave empty to use ALB DNS; set real domain later
+      paths:
+        - path: /
+          pathType: Prefix
+resources: {}

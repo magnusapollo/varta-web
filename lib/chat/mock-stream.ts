@@ -1,6 +1,3 @@
-
-import { ChatMessage } from '@/lib/types';
-
 type Chunk = { token: string; citations?: {title:string; url:string}[] };
 type Sample = { id: string; user: string; assistant: Chunk[] };
 
