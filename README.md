@@ -44,29 +44,40 @@ NEXT_PUBLIC_USE_MOCKS=true
 - SSR/ISR: `revalidate = 300` on feed/topic/item routes
 - Mock SSE client switchable to real agent SSE
 
-## Project layout
+## Build and Deploy
+### Build
+```
+NEW_TAG=v0.1.0-amd64-$(date +%s)                                         
+
+docker buildx build \           
+  --no-cache \
+  --platform linux/amd64 \
+  -f deployment/Dockerfile \
+  -t 704892510569.dkr.ecr.us-east-1.amazonaws.com/varta-web:${NEW_TAG} \
+  --push .
 
 ```
-2025-11-04 snapshot
-web/
-├─ app/...
-├─ components/...
-├─ lib/...
-├─ fixtures/...
-├─ styles/globals.css
-└─ tests/...
+
+### Deploy
+```
+helm upgrade --install varta-web ./deployment/charts/varta-web -n varta \
+  --set image.repository=704892510569.dkr.ecr.us-east-1.amazonaws.com/varta-web \
+  --set image.tag=${NEW_TAG} \
+  --set image.pullPolicy=Always
+
 ```
 
-## Acceptance Criteria mapping
+### Validate
+```
+kubectl -n varta get ingress
 
-- Home renders from mocks ✅
-- Toggle `NEXT_PUBLIC_USE_MOCKS=false` switches to live endpoints ✅ (fetch wrappers in `lib/data/api.ts`)
-- Item shows summary bullets & "why it matters" ✅
-- Search highlights query ✅
-- Chat streams mock tokens with citations ✅
-- SSR/ISR set ✅
-- Tests included ✅
+kubectl -n varta get pods
 
+kubectl -n varta get svc
+
+kubectl logs deployment.apps/varta-web -n varta
+
+```
 ---
 
 MIT © 2025 Varta
