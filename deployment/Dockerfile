@@ -28,7 +28,7 @@ ENV PORT=3000
 ENV HOSTNAME=0.0.0.0
 RUN addgroup -g 1001 -S nodegrp && adduser -S nodeusr -G nodegrp
 COPY --from=builder /app/.next/standalone ./
-COPY --from=builder /app/.next/static ./public/.next/static
+COPY --from=builder /app/.next/static ./.next/static
 USER nodeusr
 EXPOSE 3000
 CMD ["node","server.js"]

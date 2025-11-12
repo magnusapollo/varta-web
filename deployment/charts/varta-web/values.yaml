@@ -1,6 +1,6 @@
 image:
   repository: 704892510569.dkr.ecr.us-east-1.amazonaws.com/varta-web
-  tag: v0.1.0-4639b42
+  tag: v0.1.0-amd64-1762906143
   pullPolicy: IfNotPresent
 
 replicaCount: 2
